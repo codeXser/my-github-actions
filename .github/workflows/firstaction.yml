@@ -20,9 +20,18 @@ jobs:
 
     steps:
     - name: Run a one-line script
-      run: echo Hello $name!
-   
-        
+      run: |
+        echo Hello $name!
+        echo Actor: ${{ github.actor }}
+        echo Comitted By:: ${{ github.event.comits[0].author.name }}
+
+  dump:
+        runs-on: ubuntu-latest
+        steps:
+           - env:
+                GITHUB_CONTEXT: ${{ toJson(github) }}
+run: echo "$GITHUB_CONTEXT"
+  
   pull_requests_only:
 
     runs-on: ubuntu-latest
