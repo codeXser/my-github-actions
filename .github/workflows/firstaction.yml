@@ -16,7 +16,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-       name: Marrion 
+       name: Marrion AJ
 
     steps:
     - name: Run a one-line script
