@@ -1,6 +1,15 @@
 name: first actions hello
 
-on: [push]
+on: 
+   push:
+     branches: 
+       - master
+         - build
+   pull_request:
+     types: [closed]
+     
+           
+
 
 jobs:
   build:
