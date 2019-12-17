@@ -24,7 +24,18 @@ jobs:
         echo Hello $name!
         echo Actor: ${{ github.actor }}
         echo Comitted By:: ${{ github.event.comits[0].author.name }}
-
+  weather:
+     runs-on: [ubuntu-latest]
+     env:
+        location: '5.6037, 0.1870'
+        lang: en
+        units: us
+        exclude: 'minutely,hourly,daily,alerts,flags'
+        dark_sky_secret:  ${{ secrets.dark_sky }}
+        
+     steps:
+         - name: Current Weather
+           run: curl -s --url https://api.darksky.net/forecast/$dark_sky_secret
   dump:
         runs-on: ubuntu-latest
         steps:
